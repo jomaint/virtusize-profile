@@ -41,9 +41,9 @@ export default class AccountPanel extends React.Component {
                         {
                             menu.map((item,ind) => (
                                 <li key={`menu-item-${ind}`} className='menu-item flex-row'>
-                                    <button onClick={this.onMenuPress(item.label)}>
-                                        <i class={`far ${item.iconClass}`}></i>
-                                        <span style={ current === item.label ? styles.activeMenuItem : {} }>{item.label}</span>
+                                    <button onClick={this.onMenuPress(item.label)} style={ current === item.label ? styles.activeMenuItem : {} }>
+                                        <i className={`far ${item.iconClass}`}></i>
+                                        <span>{item.label}</span>
                                     </button>
                                 </li>
                             ))

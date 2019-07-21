@@ -1,6 +1,6 @@
 $font-primary: #0E1C3B;
 $font-secondary: #484848;
-$font-tertiary: #747472;
+$font-tertiary: #A2A2A2;
 $border-color: #eeeeee;
 $red: #d43242;
 $red-hovered: #c9444d;
@@ -46,6 +46,12 @@ h1, h2, h3, h4, h5, h6 {
 .margin-top-48 {
     margin-top: 48px;
 }
+.margin-top-72 {
+    margin-top: 72px;
+}
+.margin-top-96 {
+    margin-top: 96px;
+}
 
 .margin-bottom {
     margin-bottom: 8px;
@@ -62,6 +68,12 @@ h1, h2, h3, h4, h5, h6 {
 .margin-bottom-48 {
     margin-bottom: 48px;
 }
+.margin-bottom-72 {
+    margin-bottom: 72px;
+}
+.margin-bottom-96 {
+    margin-bottom: 96px;
+}
 
 .margin-left {
     margin-left: 8px;
@@ -77,6 +89,34 @@ h1, h2, h3, h4, h5, h6 {
 }
 .margin-left-48 {
     margin-left: 48px;
+}
+.margin-left-72 {
+    margin-left: 72px;
+}
+.margin-left-96 {
+    margin-left: 96px;
+}
+
+.margin-right {
+    margin-right: 8px;
+}
+.margin-right-16 {
+    margin-right: 16px;
+}
+.margin-right-24 {
+    margin-right: 24px;
+}
+.margin-right-36 {
+    margin-right: 36px;
+}
+.margin-right-48 {
+    margin-right: 48px;
+}
+.margin-right-72 {
+    margin-right: 72px;
+}
+.margin-right-96 {
+    margin-right: 96px;
 }
 
 
@@ -110,7 +150,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .page-header {
-    margin: 24px 0;
+    margin-bottom: 24px;
 }
 
 label {
@@ -127,6 +167,7 @@ input {
 
 // ===== EDITABLE TEXT FIELD ===== //
 .editable-text-field {
+    position: relative;
     font-size: 18px;
     padding: 8px;
     border: 1px solid transparent;
@@ -141,25 +182,42 @@ input {
         }
     }
 
-    &:hover {
-        cursor: pointer;
-    }
-
     // Show border only when hovered
     &.hover-border:hover {
         border: 1px solid #eee;
         background: #fafafa;
     }
 
+    // Always bordered
     &.bordered {
         border: 1px solid #eee;
         background: #fafafa;
     }
 
-    // field error msges
-    .error-msg {
-        color: $red;
+    // 'Edit' Icon
+    .fa-pencil-alt {
+        position: absolute;
+        right: 13px;
+        top: 12px;
+        color: $font-tertiary;
+        opacity: 0;
     }
+
+    &:hover {
+        cursor: pointer;
+
+        // Show 'Edit' Icon when hovering over field
+        .fa-pencil-alt {
+            opacity: 1;
+        }
+    }
+
+}
+
+// field error msges
+.error-msg {
+    color: $red;
+    margin-top: 8px;
 }
 
 // ===== NAVBAR ===== //
@@ -218,10 +276,15 @@ input {
 }
 
 .account-profile-pic {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     background: #f5f5f5;
+
+    .fa-user {
+        font-size: 50px;
+        color: #ddd;
+    }
 }
 
 #account-menu {
@@ -247,6 +310,13 @@ input {
         i.far {
             margin-right: 16px;
             font-size: 18px;
+
+            // when menu item is active, set to dark color
+            &.active {
+                ::before {
+                    color: $font-primary;
+                }
+            }
         }
     }
 }

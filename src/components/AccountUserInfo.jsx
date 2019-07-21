@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import UserProfile from './UserProfile';
 import EditableTextField from './EditableTextField';
 import EditableNameField from './EditableNameField';
 
@@ -17,6 +18,10 @@ export default class AccountUserInfo extends React.Component {
         this.setState({ [label]: value });
     }
 
+    onNameFieldChange = (valueObj) => {
+        this.setState({ ...valueObj });
+    }
+
     render() {
         const { firstName, lastName, email } = this.state;
         const fullName = `${firstName} ${lastName}`;
@@ -25,10 +30,9 @@ export default class AccountUserInfo extends React.Component {
             <div id="account-profile">
                 <h3 className="page-header">Profile</h3>
 
-                <div className="flex-row margin-top-48 margin-bottom-48">
-                    <div className="account-profile-pic">
-                    </div>
-                    <div className="margin-left-48 justify-content-center">
+                <div className="flex-row margin-top-72 margin-bottom-72">
+                    <UserProfile />
+                    <div className="margin-left-48 flex-col justify-content-center">
                         <h4 id="account-profile-name-preview" >
                             {fullName}
                         </h4>
@@ -42,7 +46,7 @@ export default class AccountUserInfo extends React.Component {
                 <EditableNameField
                     firstName={firstName}
                     lastName={lastName}
-                    onChange={this.onChangeField} />
+                    onChange={this.onNameFieldChange} />
 
                 {/* Basic editable text field component */}
                 <EditableTextField
@@ -51,7 +55,8 @@ export default class AccountUserInfo extends React.Component {
                     type="email"
                     placeholder="Your email"
                     className="margin-top-24"
-                    onChange={this.onChangeField('email')} />
+                    onChange={this.onChangeField('email')}
+                    required />
             </div>
         );
     }
