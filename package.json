@@ -37,7 +37,10 @@
         "webpack-dev-server": "^3.7.2"
     },
     "dependencies": {
+        "jquery": "^3.4.1",
         "react": "^16.8.6",
-        "react-dom": "^16.8.6"
+        "react-bootstrap-modal": "^4.2.0",
+        "react-dom": "^16.8.6",
+        "zxcvbn": "^4.4.2"
     }
 }

@@ -3,10 +3,13 @@ import PropTypes from 'prop-types';
 import UserProfile from './UserProfile';
 import EditableTextField from './EditableTextField';
 import EditableNameField from './EditableNameField';
+import ChangePasswordField from './ChangePasswordField';
 
 export default class AccountUserInfo extends React.Component {
     constructor(props) {
         super(props);
+
+        // Store all except password (shouldn't store on client side)
         this.state = {
             firstName: 'emily',
             lastName: 'lee',
@@ -32,10 +35,10 @@ export default class AccountUserInfo extends React.Component {
 
                 <div className="flex-row margin-top-72 margin-bottom-72">
                     <UserProfile />
-                    <div className="margin-left-48 flex-col justify-content-center">
-                        <h4 id="account-profile-name-preview" >
+                    <div className="margin-left-36 flex-col justify-content-center">
+                        <h5 id="account-profile-name-preview" >
                             {fullName}
-                        </h4>
+                        </h5>
                         <p id="account-profile-email-preview">
                             {email}
                         </p>
@@ -57,6 +60,8 @@ export default class AccountUserInfo extends React.Component {
                     className="margin-top-24"
                     onChange={this.onChangeField('email')}
                     required />
+
+                <ChangePasswordField />
             </div>
         );
     }

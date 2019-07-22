@@ -156,13 +156,16 @@ h1, h2, h3, h4, h5, h6 {
 label {
     font-weight: 600;
     font-size: 13px;
-    color: $font-tertiary;
+    color: $font-secondary;
     margin-left: 8px;
     margin-bottom: 4px;
 }
 
 input {
     color: $font-primary;
+    &:focus {
+        outline: none;
+    }
 }
 
 // ===== EDITABLE TEXT FIELD ===== //
@@ -177,9 +180,6 @@ input {
         width: 100%;
         border: none;
         background: transparent;
-        &:focus {
-            outline: none;
-        }
     }
 
     // Show border only when hovered
@@ -331,4 +331,84 @@ input {
 
 #account-profile-email-preview {
     color: $font-tertiary;
+}
+
+
+// ===== CHANGE PASSWORD MODAL ===== //
+// overwrite default styles of 'react-bootstrap-modal', since its not showing when fade in enable
+.modal-open {
+    .fade {
+        opacity: 1;
+    }
+
+    .modal-backdrop {
+        background: #3434349c;
+    }
+
+    .modal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-header {
+        display: block;
+
+        .close {
+            font-size: 32px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .modal-content {
+        min-width: 450px;
+        min-height: 300px;
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
+}
+
+.change-password-modal {
+    padding: 8px;
+
+    label {
+        display: block;
+        margin-left: 0;
+    }
+    input {
+        width: 100%;
+        border: 1px solid $border-color;
+        font-size: 18px;
+        padding: 8px;
+    }
+
+    .form-group {
+        position: relative;
+    }
+
+    .password-visibility-btn {
+        display: inline-block;
+        position: absolute;
+        right: 11px;
+        top: 34px;
+    }
+
+    .pwd-strength-label {
+        font-size: 11px;
+        color: $font-secondary;
+        margin-bottom: 4px;
+    }
+
+    // Animate the strength bar, feels more refine
+    .progress-bar {
+        transition: width 300ms ease;
+        -webkit-transition: width 300ms ease;
+        -moz-transition: width 300ms ease;
+        -ms-transition: width 300ms ease;
+        -o-transition: width 300ms ease;
+    }
 }
