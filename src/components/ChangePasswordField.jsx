@@ -11,13 +11,21 @@ class ChangePasswordField extends React.Component {
             showModal: false,
             newPassword: '',
             type: 'password', // toggles between 'password' & 'text' for visibility
-            pwdStrength: null
+            pwdStrength: null,
+            error: null
         };
     }
 
     saveAndClose = () => {
-        console.log('saving form ');
+        // Password cant be too short, enforce at least 8 char
+        if (this.state.newPassword.length < 8) {
+            this.setState({ error: "Enter password that's at least 8 characters long" });
+
+
         // API calls to backend goes here -
+        } else {
+
+        }
     }
 
     onCloseModal = () => {
@@ -32,7 +40,11 @@ class ChangePasswordField extends React.Component {
         let newPassword = e.target.value;
         let pwdStrength = zxcvbn(newPassword);
 
-        this.setState({ newPassword, pwdStrength });
+        this.setState({
+            newPassword,
+            pwdStrength,
+            error: null     // clear error till next validation
+        });
     }
 
     toggleVisibility = () => {
@@ -68,10 +80,13 @@ class ChangePasswordField extends React.Component {
     }
 
     renderModal() {
-        const { showModal, newPassword, type, pwdStrength } = this.state;
+        const { showModal, newPassword, type, pwdStrength, error } = this.state;
         console.log('modal render', showModal);
 
         const isHidingVisibility = type === 'password';
+        // determines whether the descriptive text is shown in red or muted grey
+        const tipsTextClass = error ? 'text-danger' : 'text-muted';
+        const msg = error || pwdStrength?.feedback?.suggestions;
 
         return (
             <Modal
@@ -84,7 +99,7 @@ class ChangePasswordField extends React.Component {
                 </Modal.Header>
 
                 <Modal.Body>
-                    <div className="change-password-modal margin-top-16 margin-bottom-24">
+                    <div className="change-password-modal margin-top-16">
                         <div class="form-group">
                             <label for="password">New password</label>
                             <input
@@ -108,29 +123,25 @@ class ChangePasswordField extends React.Component {
 
                         {/* Show Message to assist user to create a stronger password */}
                         {
-                            pwdStrength?.feedback?.suggestions &&
-                            <small class="form-text text-muted">
-                                { pwdStrength.feedback.suggestions }
+                            msg &&
+                            <small class={`form-text ${tipsTextClass}`}>
+                                { msg }
                             </small>
                         }
 
-                        {/* Show encouragement if password strength is good */}
+                        {/* Show encouragement if password strength is good, and if there's no validation error  */}
                         {
-                            (pwdStrength?.score == 4) &&
+                            (pwdStrength?.score == 4 && !error) &&
                             <small class="form-text text-success">
                                 Good job! Password is sufficiently strong.
                             </small>
                         }
+
+                        <button className='btn btn-primary margin-top-48' onClick={this.saveAndClose}>
+                            Change Password
+                        </button>
                     </div>
                 </Modal.Body>
-
-                <Modal.Footer>
-                    <Modal.Dismiss className='btn btn-default'>Cancel</Modal.Dismiss>
-
-                    <button className='btn btn-primary' onClick={this.saveAndClose}>
-                        Save
-                    </button>
-              </Modal.Footer>
           </Modal>
         );
     }
