@@ -17,11 +17,12 @@ export default class AccountUserInfo extends React.Component {
         };
     }
 
-    onChangeField = (label) => (value) => {
+    onChangeField = label => value => {
+        console.log('account user info on change', label, value);
         this.setState({ [label]: value });
     }
 
-    onNameFieldChange = (valueObj) => {
+    onNameFieldChange = valueObj => {
         this.setState({ ...valueObj });
     }
 
@@ -34,7 +35,7 @@ export default class AccountUserInfo extends React.Component {
                 <h3 className="page-header">Profile</h3>
 
                 <div className="flex-row margin-top-72 margin-bottom-72">
-                    <UserProfile />
+                    <UserProfile email={email} />
                     <div className="margin-left-36 flex-col justify-content-center">
                         <h5 id="account-profile-name-preview" >
                             {fullName}

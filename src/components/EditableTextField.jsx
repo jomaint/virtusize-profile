@@ -8,7 +8,8 @@ class EditableTextField extends React.Component {
         this.state = {
             isEditing: false,
             inputValue: '',
-            error: null
+            error: null,
+            inputFocused: false
         };
     }
 
@@ -56,14 +57,36 @@ class EditableTextField extends React.Component {
 
         this.setState({ inputValue: newValue });
 
-        // if being controlled by parent, update parent state
-        if (this.props.onChange)
-            this.props.onChange(newValue);
+    }
+
+    onInputFocus = () => {
+        this.setState({ inputFocused: true });
+    }
+
+    onInputBlur = () => {
+        this.setState({ inputFocused: false });
+
+        // Add simple but convenient accessibility behaviour, where there is no new change
+        // Exit the editable state
+        if (this.state.inputValue.length == 0) {
+            this.setState({ isEditing: false });
+        }
+    }
+
+    onKeyPress = (ev) => {
+        console.log(`Pressed keyCode ${ev.key}`);
+        ev.preventDefault();
+
+        // Track 'Enter' key press to submit.
+        // Intuitively, a lot of people press 'Enter' to submit
+        if (ev.key === 'Enter') {
+            this.submit();
+        }
     }
 
     render() {
         const { className, value, placeholder, label, type, editable, hideActionButtons, autoFocus } = this.props;
-        const { isEditing, error } = this.state;
+        const { isEditing, error, inputFocused } = this.state;
 
         const allowEdit = ('editable' in this.props) ? editable : isEditing;
 
@@ -87,12 +110,15 @@ class EditableTextField extends React.Component {
         return (
             <div className={`${className}`}>
                 { label && <label for={label}>{label}</label> }
-                <div className="col-12 flex editable-text-field bordered">
+                <div className="col-12 flex editable-text-field bordered" style={{ borderColor: inputFocused && '#15c7ba' }}>
                     <input
                         name={label}
                         type={type}
                         defaultValue={value}
                         onChange={this.onChange}
+                        onFocus={this.onInputFocus}
+                        onBlur={this.onInputBlur}
+                        onKeyPress={this.onKeyPress}
                         placeholder={placeholder}
                         autoFocus={autoFocus} />
                 </div>
