@@ -19,7 +19,7 @@ class ChangePasswordField extends React.Component {
     saveAndClose = () => {
         // Password cant be too short, enforce at least 8 char
         if (this.state.newPassword.length < 8) {
-            this.setState({ error: "Enter password that's at least 8 characters long" });
+            this.setState({ error: "Enter new password that's at least 8 characters long" });
 
 
         // API calls to backend goes here -
@@ -150,7 +150,11 @@ class ChangePasswordField extends React.Component {
 
         return (
             <div>
-                <button type="button" onClick={this.onShowModal}>
+                <button
+                    type="button"
+                    id="password-change-btn"
+                    className="margin-top-24"
+                    onClick={this.onShowModal}>
                     Password Change
                 </button>
 

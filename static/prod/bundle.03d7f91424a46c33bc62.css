@@ -1,0 +1,349 @@
+html {
+  height: 100%; }
+
+body {
+  min-height: 100%;
+  font-size: 16px;
+  color: #0E1C3B;
+  font-family: 'Open Sans', sans-serif; }
+
+#content {
+  height: 100%; }
+
+ul {
+  padding-left: 0;
+  list-style: none; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600; }
+
+.clickable:hover {
+  cursor: pointer; }
+
+.margin-top {
+  margin-top: 8px; }
+
+.margin-top-16 {
+  margin-top: 16px; }
+
+.margin-top-24 {
+  margin-top: 24px; }
+
+.margin-top-36 {
+  margin-top: 36px; }
+
+.margin-top-48 {
+  margin-top: 48px; }
+
+.margin-top-72 {
+  margin-top: 72px; }
+
+.margin-top-96 {
+  margin-top: 96px; }
+
+.margin-bottom {
+  margin-bottom: 8px; }
+
+.margin-bottom-16 {
+  margin-bottom: 16px; }
+
+.margin-bottom-24 {
+  margin-bottom: 24px; }
+
+.margin-bottom-36 {
+  margin-bottom: 36px; }
+
+.margin-bottom-48 {
+  margin-bottom: 48px; }
+
+.margin-bottom-72 {
+  margin-bottom: 72px; }
+
+.margin-bottom-96 {
+  margin-bottom: 96px; }
+
+.margin-left {
+  margin-left: 8px; }
+
+.margin-left-16 {
+  margin-left: 16px; }
+
+.margin-left-24 {
+  margin-left: 24px; }
+
+.margin-left-36 {
+  margin-left: 36px; }
+
+.margin-left-48 {
+  margin-left: 48px; }
+
+.margin-left-72 {
+  margin-left: 72px; }
+
+.margin-left-96 {
+  margin-left: 96px; }
+
+.margin-right {
+  margin-right: 8px; }
+
+.margin-right-16 {
+  margin-right: 16px; }
+
+.margin-right-24 {
+  margin-right: 24px; }
+
+.margin-right-36 {
+  margin-right: 36px; }
+
+.margin-right-48 {
+  margin-right: 48px; }
+
+.margin-right-72 {
+  margin-right: 72px; }
+
+.margin-right-96 {
+  margin-right: 96px; }
+
+.flex {
+  display: flex; }
+
+.flex-1 {
+  display: flex;
+  flex: 1; }
+
+.flex-row {
+  display: flex;
+  flex-direction: row; }
+
+.flex-col {
+  display: flex;
+  flex-direction: column; }
+
+.flex-center-all {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.side-panel {
+  border-right: 1px solid #eeeeee; }
+
+.full-height {
+  min-height: 100%; }
+
+.page-header {
+  margin-bottom: 24px; }
+
+label {
+  font-weight: 600;
+  font-size: 13px;
+  color: #888888;
+  margin-left: 8px;
+  margin-bottom: 4px; }
+
+input {
+  color: #0E1C3B; }
+  input:focus {
+    outline: none; }
+
+button:focus {
+  outline: none; }
+
+.editable-text-field {
+  position: relative;
+  font-size: 18px;
+  padding: 8px;
+  border: 1px solid transparent;
+  border-radius: 2px; }
+  .editable-text-field input {
+    width: 100%;
+    border: none;
+    background: transparent; }
+  .editable-text-field.hover-border:hover {
+    border: 1px solid #eee;
+    background: #fafafa; }
+  .editable-text-field.bordered {
+    border: 1px solid #eee;
+    background: #fafafa; }
+  .editable-text-field .fa-pencil-alt {
+    position: absolute;
+    right: 13px;
+    top: 12px;
+    color: #A2A2A2;
+    opacity: 0; }
+  .editable-text-field:hover {
+    cursor: pointer; }
+    .editable-text-field:hover .fa-pencil-alt {
+      opacity: 1; }
+
+.error-msg {
+  color: #d43242;
+  margin-top: 8px; }
+
+.navbar {
+  border-bottom: 1px solid #eeeeee; }
+  .navbar .navbar-brand img {
+    height: 50px;
+    width: inherit; }
+
+.editable-text-field-actions button {
+  background: #e0dfe0;
+  border: none;
+  margin-top: 8px;
+  font-size: 20px;
+  height: 35px;
+  width: 35px;
+  color: #555; }
+  .editable-text-field-actions button:hover {
+    cursor: pointer;
+    opacity: 0.9; }
+  .editable-text-field-actions button:focus {
+    outline: none; }
+  .editable-text-field-actions button:first-child {
+    margin-right: 8px; }
+  .editable-text-field-actions button.success {
+    background: #16BFB1;
+    color: white; }
+
+#account-page {
+  min-height: calc(100vh - 77px);
+  background: linear-gradient(305.42deg, #16BFB1 0%, #A1F2EC 100%); }
+
+#account-panel {
+  width: 70vw;
+  max-width: 800px;
+  background: white;
+  border-radius: 5px;
+  overflow: hidden; }
+  @media (max-width: 992px) {
+    #account-panel {
+      width: 85vw; } }
+
+#account-profile {
+  padding: 48px; }
+
+.account-profile-pic-wrapper {
+  position: relative; }
+  .account-profile-pic-wrapper .account-profile-pic {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: #f5f5f5;
+    overflow: hidden; }
+    .account-profile-pic-wrapper .account-profile-pic .fa-user {
+      font-size: 50px;
+      color: #ddd; }
+  .account-profile-pic-wrapper .editable-icon-container {
+    position: absolute;
+    bottom: 7px;
+    right: 2px;
+    padding: 5px;
+    background: #1cc1b3;
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    overflow: hidden; }
+    .account-profile-pic-wrapper .editable-icon-container i {
+      position: relative;
+      left: 6px;
+      top: 1px;
+      color: white; }
+    .account-profile-pic-wrapper .editable-icon-container input[type="file"] {
+      opacity: 0;
+      position: absolute;
+      z-index: 2; }
+  .account-profile-pic-wrapper img {
+    height: 100%;
+    width: 100%; }
+
+#account-menu .menu-item button {
+  text-align: left;
+  width: 100%;
+  padding: 20px 24px;
+  font-size: 18px;
+  background: white;
+  border-color: transparent;
+  color: #A2A2A2; }
+  #account-menu .menu-item button:hover {
+    cursor: pointer;
+    color: #0E1C3B; }
+  #account-menu .menu-item button i.far {
+    margin-right: 16px;
+    font-size: 18px; }
+    #account-menu .menu-item button i.far.active ::before {
+      color: #0E1C3B; }
+
+#account-profile-name-preview {
+  font-weight: 400; }
+  #account-profile-name-preview:first-letter {
+    text-transform: uppercase; }
+
+#account-profile-email-preview {
+  color: #888888; }
+
+.modal-open .fade {
+  opacity: 1; }
+
+.modal-open .modal-backdrop {
+  background: #3434349c; }
+
+.modal-open .modal {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.modal-open .modal-body {
+  padding: 15px 15px 22px 15px; }
+
+.modal-open .modal-header {
+  display: block; }
+  .modal-open .modal-header .close {
+    font-size: 32px; }
+    .modal-open .modal-header .close:hover {
+      cursor: pointer; }
+
+.modal-open .modal-content {
+  min-width: 450px;
+  min-height: 300px; }
+
+.modal-open button:hover {
+  cursor: pointer; }
+
+#password-change-btn {
+  border: 1px solid #eee;
+  padding: 8px 24px;
+  border-radius: 3px; }
+  #password-change-btn:hover {
+    border: 1px solid #eee;
+    background: #fafafa;
+    cursor: pointer; }
+
+.change-password-modal {
+  padding: 8px; }
+  .change-password-modal label {
+    display: block;
+    margin-left: 0; }
+  .change-password-modal input {
+    width: 100%;
+    border: 1px solid #eeeeee;
+    font-size: 18px;
+    padding: 8px; }
+  .change-password-modal .form-group {
+    position: relative; }
+  .change-password-modal .password-visibility-btn {
+    display: inline-block;
+    position: absolute;
+    right: 11px;
+    top: 34px; }
+  .change-password-modal .pwd-strength-label {
+    font-size: 11px;
+    color: #888888;
+    margin-bottom: 4px; }
+  .change-password-modal .progress-bar {
+    transition: width 300ms ease;
+    -webkit-transition: width 300ms ease;
+    -moz-transition: width 300ms ease;
+    -ms-transition: width 300ms ease;
+    -o-transition: width 300ms ease; }
+  .change-password-modal button {
+    float: right; }
+

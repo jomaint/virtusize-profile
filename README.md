@@ -10,7 +10,8 @@ This Virtusize Assignment is made with the following:
 ## Design Considerations
 When approaching this project, I have set out with the following objectives and goals:
 - Seamless experience - No transition between screens, when user wants to complete an action. E.g. Changing password
-- Aim to make UI easy & intuitive. Shouldn't reinvent the wheel (redesign everything), since users will prefer a familar interface. Using white space to declutter the UI, making it easier for users to focus on task/objective
+- Aim to make UI intuitive to understand. Shouldn't reinvent the wheel (redesign everything), since users will prefer a familar interface. Using white space to declutter the UI, making it easier for users to focus on task/objective
+- Maintainable - Easy for other developers to understand and maintain
 
 ## Instructions
 ### Installation
@@ -24,75 +25,31 @@ $ npm install
 For developing locally
 
 ```sh
-$ npm install --production
-$ NODE_ENV=production node app
+$ npm install
+$ npm start
 ```
 
 ### Production build
 
-For production environments...
+To build for production on bare servers (EC2, DO droplets, etc)
+After commiting to develop branch, merge into master then build
 
 ```sh
-$ npm install --production
-$ NODE_ENV=production node app
+$ npm run build
+$ npm run deploy && git add . && git commit --m "Production build" && git push
 ```
 
-
-### Development
-
-Want to contribute? Great!
-
-Dillinger uses Gulp + Webpack for fast developing.
-Make a change in your file and instantanously see your updates!
-
-Open your favorite Terminal and run these commands.
-
-First Tab:
+SSH into remote server. Also assuming Nginx or other web service is serving the bundle files & html
 ```sh
-$ node app
+$ cd project_folder_path
+$ git checkout master
+$ git pull && npm run live
 ```
+## Extras:
+- Able to preview image after uploading, bypassing uploading. Able to show how image will look like.
+- Build minified files for production. Test production files locally using nodejs, express
+- Additional details on accessibility such as, handling 'Enter' button when editing fields
 
-Second Tab:
-```sh
-$ gulp watch
-```
-
-(optional) Third:
-```sh
-$ karma test
-```
-### Building for source
-For production release:
-```sh
-$ gulp build --prod
-```
-Generating pre-built zip archives for distribution:
-```sh
-$ gulp build dist --prod
-```
-
-Verify the deployment by navigating to your server address in your preferred browser.
-
-```sh
-127.0.0.1:8000
-```
-
-
-### Plugins
-
-Dillinger is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
-
-| Plugin | README |
-| ------ | ------ |
-| Dropbox | [plugins/dropbox/README.md][PlDb] |
-| Github | [plugins/github/README.md][PlGh] |
-| Google Drive | [plugins/googledrive/README.md][PlGd] |
-| OneDrive | [plugins/onedrive/README.md][PlOd] |
-| Medium | [plugins/medium/README.md][PlMe] |
-| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
-
-
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
    [webpack]: <https://webpack.js.org/>
    [node.js]: <http://nodejs.org>

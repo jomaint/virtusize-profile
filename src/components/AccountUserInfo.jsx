@@ -62,6 +62,8 @@ export default class AccountUserInfo extends React.Component {
                     onChange={this.onChangeField('email')}
                     required />
 
+                <hr/>
+
                 <ChangePasswordField />
             </div>
         );

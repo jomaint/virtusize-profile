@@ -14,7 +14,15 @@ const menu = [
     {
         label: 'Notifications',
         iconClass: 'fa-bell'
-    }
+    },
+    {
+        label: 'Help',
+        iconClass: 'fa-question-circle'
+    },
+    {
+        label: 'Feedback',
+        iconClass: 'fa-comment-dots'
+    },
 ];
 
 export default class AccountPanel extends React.Component {

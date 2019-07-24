@@ -1,5 +1,5 @@
 $font-primary: #0E1C3B;
-$font-secondary: #484848;
+$font-secondary: #888888;
 $font-tertiary: #A2A2A2;
 $border-color: #eeeeee;
 $red: #d43242;
@@ -36,6 +36,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // ===== COMMON STYLES ==== //
+
+.clickable {
+    &:hover {
+        cursor: pointer;
+    }
+}
 
 .margin-top {
     margin-top: 8px;
@@ -174,6 +180,12 @@ input {
     }
 }
 
+button {
+    &:focus {
+        outline: none;
+    }
+}
+
 // ===== EDITABLE TEXT FIELD ===== //
 .editable-text-field {
     position: relative;
@@ -275,10 +287,10 @@ input {
     max-width: 800px;
     background: white;
     border-radius: 5px;
-    border-bottom: 3px solid #262727;
+    overflow: hidden;
 
-    @media(max-width: $sm) {
-        width: 80vw;
+    @media(max-width: $md) {
+        width: 85vw;
     }
 }
 
@@ -286,17 +298,47 @@ input {
     padding: 48px;
 }
 
-.account-profile-pic {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    background: #f5f5f5;
-    overflow: hidden;
+.account-profile-pic-wrapper {
+    position: relative;
 
-    // Placeholder Icon
-    .fa-user {
-        font-size: 50px;
-        color: #ddd;
+    .account-profile-pic {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        background: #f5f5f5;
+        overflow: hidden;
+
+        // Profile Placeholder Icon
+        .fa-user {
+            font-size: 50px;
+            color: #ddd;
+        }
+    }
+
+    // Editable button
+    .editable-icon-container {
+        position: absolute;
+        bottom: 7px;
+        right: 2px;
+        padding: 5px;
+        background: #1cc1b3;
+        width: 36px;
+        height: 36px;
+        border-radius: 18px;
+        overflow: hidden;
+
+        i {
+            position: relative;
+            left: 6px;
+            top: 1px;
+            color: white;
+        }
+
+        input[type="file"] {
+            opacity: 0;
+            position: absolute;
+            z-index: 2;
+        }
     }
 
     // User as image generated from gravatar
@@ -320,9 +362,6 @@ input {
         &:hover {
             cursor: pointer;
             color: $font-primary;
-        }
-        &:focus {
-            outline: none;
         }
 
         // menu icon
@@ -349,7 +388,7 @@ input {
 }
 
 #account-profile-email-preview {
-    color: $font-tertiary;
+    color: $font-secondary;
 }
 
 
@@ -368,6 +407,10 @@ input {
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .modal-body {
+        padding: 15px 15px 22px 15px;
     }
 
     .modal-header {
@@ -391,6 +434,18 @@ input {
     }
 }
 
+#password-change-btn {
+    border: 1px solid #eee;
+    padding: 8px 24px;
+    border-radius: 3px;
+
+    &:hover {
+        border: 1px solid #eee;
+        background: #fafafa;
+        cursor: pointer;
+    }
+}
+
 .change-password-modal {
     padding: 8px;
 
@@ -398,6 +453,7 @@ input {
         display: block;
         margin-left: 0;
     }
+
     input {
         width: 100%;
         border: 1px solid $border-color;
@@ -429,5 +485,9 @@ input {
         -moz-transition: width 300ms ease;
         -ms-transition: width 300ms ease;
         -o-transition: width 300ms ease;
+    }
+
+    button {
+        float: right;
     }
 }

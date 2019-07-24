@@ -75,18 +75,18 @@ class EditableTextField extends React.Component {
 
     onKeyPress = (ev) => {
         console.log(`Pressed keyCode ${ev.key}`);
-        ev.preventDefault();
 
         // Track 'Enter' key press to submit.
         // Intuitively, a lot of people press 'Enter' to submit
         if (ev.key === 'Enter') {
+            ev.preventDefault();
             this.submit();
         }
     }
 
     render() {
         const { className, value, placeholder, label, type, editable, hideActionButtons, autoFocus } = this.props;
-        const { isEditing, error, inputFocused } = this.state;
+        const { isEditing, error, inputValue, inputFocused } = this.state;
 
         const allowEdit = ('editable' in this.props) ? editable : isEditing;
 
@@ -158,7 +158,7 @@ EditableTextField.propTypes = {
     className: PropTypes.string,
     hideActionButtons: PropTypes.bool,
     autoFocus: PropTypes.bool,
-    required: PropTypes.bool
+    required: PropTypes.bool,
 };
 
 EditableTextField.defaultProps = {
@@ -167,7 +167,7 @@ EditableTextField.defaultProps = {
     className: '',
     hideActionButtons: false,
     autoFocus: true,
-    required: false
+    required: false,
 };
 
 export default EditableTextField;

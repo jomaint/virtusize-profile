@@ -17,9 +17,13 @@ class EditableNameField extends React.Component {
         };
     }
 
-    setEditable = () => {
+    // Set edtiable state to true & also set focus to respective field
+    setEditable = fieldName => () => {
         if (!this.state.editable)
-            this.setState({ editable: true });
+            this.setState({
+                editable: true,
+                whichAutoFocus: fieldName
+            });
     }
 
     cancelEditable = () => {
@@ -32,11 +36,19 @@ class EditableNameField extends React.Component {
         this.setState({ [field]: value });
     }
 
+    setFocus = field => {
+        console.log('setFocus', field);
+
+        if (field === 'firstName' && this.firstName?.current)
+            this.firstName?.current?.focus();
+        else if (field === 'firstName' && this.firstName?.current)
+            this.lastName?.current?.focus();
+    }
+
     onSubmit = () => {
         const { firstName, lastName } = this.state;
         const { onChange } = this.props;
 
-        console.log('onSubmit -- firstName', firstName);
 
         // we are not using EditableTextField 'required' props, since we are recomposing a hybrid text field
         // validate - check and make sure at least first name is filled
@@ -49,25 +61,34 @@ class EditableNameField extends React.Component {
     }
 
     render() {
-        const { firstName, lastName, onChange, editable, error } = this.state;
+        const {
+            firstName,
+            lastName,
+            onChange,
+            editable,
+            error,
+            whichAutoFocus
+        } = this.state;
 
         return (
-            <div className="row justify-content-end" onClick={this.setEditable}>
-                <div className="col-12 col-sm-6">
+            <div className="row justify-content-end">
+                <div className="col-12 col-sm-6" onClick={this.setEditable('firstName')}>
                     <EditableTextField
                         label="FIRST NAME"
                         value={firstName}
                         onChange={this.onChange('firstName')}
                         editable={editable}
+                        onFocus={this.setFocus('firstName')}
+                        autoFocus={whichAutoFocus == 'firstName'}
                         hideActionButtons />
                 </div>
-                <div className="col-12 col-sm-6">
+                <div className="col-12 col-sm-6" onClick={this.setEditable('lastName')}>
                     <EditableTextField
                         label="LAST NAME"
                         value={lastName}
                         onChange={this.onChange('lastName')}
                         editable={editable}
-                        autoFocus={false}
+                        autoFocus={whichAutoFocus == 'lastName'}
                         hideActionButtons />
                 </div>
 
