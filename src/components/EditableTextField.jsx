@@ -22,7 +22,6 @@ class EditableTextField extends React.Component {
 
             // Pass in 'required' to check for empty field if required
             const hasError = validateField(type, inputValue, required, label.toLowerCase());
-            console.log('hasError', hasError);
 
             if (hasError) {
                 this.setState({ error: hasError });
@@ -106,7 +105,7 @@ class EditableTextField extends React.Component {
                         <span className="text-display">{value}</span>
 
                         {/* Editable Icon */}
-                        <i class="fas fa-pencil-alt"></i>
+                        <i className="fas fa-pencil-alt"></i>
                     </div>
                 </div>
             );
@@ -140,10 +139,10 @@ class EditableTextField extends React.Component {
                         !hideActionButtons &&
                         <div className="col-4 editable-text-field-actions flex-row justify-content-end">
                             <button className="success" onClick={this.onSubmit}>
-                                <i class="fas fa-check"></i>
+                                <i className="fas fa-check"></i>
                             </button>
                             <button className="cancel" onClick={this.cancelEditable}>
-                                <i class="fas fa-times"></i>
+                                <i className="fas fa-times"></i>
                             </button>
                         </div>
                     }

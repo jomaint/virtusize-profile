@@ -73,7 +73,7 @@ class UserProfile extends React.Component {
                             className="editable-icon-container"
                             style={{ opacity: hover ? 1 : 0 }}>
                             <input type="file" onChange={this.onChange} />
-                            <i class="fas fa-pencil-alt"></i>
+                            <i className="fas fa-pencil-alt"></i>
                         </div>
                     }
                 </div>

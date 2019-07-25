@@ -151,8 +151,8 @@ class ChangePasswordField extends React.Component {
                                 <div className="password-visibility-btn" onClick={this.toggleVisibility}>
                                     {
                                         isHidingVisibility ?
-                                        <i class="far fa-eye-slash"></i> :
-                                        <i class="far fa-eye"></i>
+                                        <i className="far fa-eye-slash"></i> :
+                                        <i className="far fa-eye"></i>
                                     }
                                 </div>
                             </div>

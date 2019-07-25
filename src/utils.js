@@ -1,6 +1,5 @@
 // Catch individual filters & return error, if no conditions caught
 export const validateField = (type="text", value, isRequired=false, name="Field") => {
-    console.log('typeeee', type);
     if (type === 'email') {
         const isValidEmail = emailValidator(value);
         console.log('isValidEmail', isValidEmail);
