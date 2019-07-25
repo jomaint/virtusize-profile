@@ -36,6 +36,11 @@ $ npm install
 $ npm start
 ```
 
+Running Unit tests
+```sh
+$ npm run test
+```
+
 ### Production build
 
 To build for production on bare servers (EC2, DO droplets, etc)
@@ -86,6 +91,7 @@ Change of Password is done via a Modal. Modals allows us to taking away other di
 - Additional details on accessibility such as, handling 'Enter' button when editing fields
 - Responsive layout for most screens from iPad to large screens
 - Demo available. Able to preview without building locally
+- Unit Tests
 
 ## Future features:
 - Handle mobile better
