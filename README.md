@@ -68,10 +68,28 @@ After the above steps, skipping step 3. you can run the local nodejs (v8.9.0) se
 $ node server
 ```
 
+## Requirements:
+### Picture should be fetched using gravatar
+If email is passed in to UserProfile Component, email will be md5 hashed and image retrieved via Gravatar. A default Icon is placed over a background when no email is passed into component
+
+### Editing full name should display a first and last name field
+A single EditableTextField Component is first created and another component wrapping two EditableTextField component. This component is named, EditableNameField, which also maintains the state of both fields and also when to show the submit and cancel button. Focusing on either fields should also toggle editable state of both fields.
+
+Email field simply uses the EditableTextField component. Building the UI by components makes it easier to make changes & maintain in the future. Also ensures a consistent look & behaviour.
+
+### Password form should have an option to unmask (no confirm password field) and should display a strength meter.
+Change of Password is done via a Modal. Modals allows us to taking away other distractions, if you want the user to focus on several related interactions. In this case, we can show tips and strength of the password entered. However, we need to be careful when using modals, since its not mobile friendly in most cases.
+
 ## Extras:
 - Able to preview image after uploading, bypassing uploading. Able to show how image will look like.
 - Build minified files for production. Test production files locally using nodejs, express
 - Additional details on accessibility such as, handling 'Enter' button when editing fields
+- Responsive layout for most screens from iPad to large screens
+- Demo available. Able to preview without building locally
+
+## Future features:
+- Handle mobile better
+
 
 
    [webpack]: <https://webpack.js.org/>
