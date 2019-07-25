@@ -6,12 +6,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const BUILD_DIR = path.resolve(__dirname, 'static');
+//const BUILD_DIR = path.resolve(__dirname, 'static');
+const BUILD_DIR = path.resolve(__dirname, 'dist');
 
 module.exports = merge(common, {
     output: {
         path: `${BUILD_DIR}/prod/`,
-        publicPath: '/assets/prod/',
+        publicPath: 'prod/',
         filename: '[name].[chunkHash].js'
     },
     optimization: {

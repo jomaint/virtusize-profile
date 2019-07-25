@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-app.use('/assets', express.static(__dirname + '/static'));
+app.use('/prod', express.static(__dirname + '/dist/prod'));
 
 app.get('/', (req, res) => {
     res.status(200).sendFile(path.join(__dirname + '/dist/index_live.html'));
