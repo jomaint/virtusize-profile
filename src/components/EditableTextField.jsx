@@ -54,9 +54,11 @@ class EditableTextField extends React.Component {
     // Update edited local state
     onChange = (e) => {
         const newValue = e.target.value;
+        const { onChange } = this.props;
 
         this.setState({ inputValue: newValue });
 
+        onChange && onChange(newValue);
     }
 
     onInputFocus = () => {
@@ -74,13 +76,15 @@ class EditableTextField extends React.Component {
     }
 
     onKeyPress = (ev) => {
-        console.log(`Pressed keyCode ${ev.key}`);
+        // console.log(`Pressed keyCode ${ev.key}`);
+        const { onEnterPress } = this.props;
 
         // Track 'Enter' key press to submit.
         // Intuitively, a lot of people press 'Enter' to submit
         if (ev.key === 'Enter') {
             ev.preventDefault();
-            this.submit();
+            this.onSubmit();
+            onEnterPress && onEnterPress();
         }
     }
 
@@ -98,7 +102,7 @@ class EditableTextField extends React.Component {
                     <div
                         className="editable-text-field hover-border"
                         onClick={this.allowEditable} >
-                        <span>{value}</span>
+                        <span className="text-display">{value}</span>
 
                         {/* Editable Icon */}
                         <i class="fas fa-pencil-alt"></i>
@@ -159,6 +163,7 @@ EditableTextField.propTypes = {
     hideActionButtons: PropTypes.bool,
     autoFocus: PropTypes.bool,
     required: PropTypes.bool,
+    onEnterPress: PropTypes.func
 };
 
 EditableTextField.defaultProps = {

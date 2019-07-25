@@ -230,6 +230,12 @@ button {
         }
     }
 
+    // Handle very long text & also pad right for icon to not overlap
+    span.text-display {
+        word-break: break-all;
+        display: inline-block;
+        padding-right: 26px;
+    }
 }
 
 // field error msges
@@ -241,6 +247,7 @@ button {
 // ===== NAVBAR ===== //
 .navbar {
     border-bottom: 1px solid $border-color;
+    padding: 0 16px;
 
     .navbar-brand img {
         height: 50px;
@@ -279,23 +286,44 @@ button {
 
 // ===== ACCOUNT ===== //
 #account-page {
-    min-height: calc(100vh - 77px);
+    min-height: calc(100vh - 61px);
     background: linear-gradient(305.42deg, #16BFB1 0%, #A1F2EC 100%);
+
+    .brand-v-background {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        opacity: 0.4;
+    }
 }
 #account-panel {
     width: 70vw;
     max-width: 800px;
     background: white;
     border-radius: 5px;
+    z-index: 2;
     overflow: hidden;
 
+    // Fix situation where notification and icon too long for menu item
+    @media(max-width: 1125px) {
+        width: 76vw;
+    }
     @media(max-width: $md) {
         width: 85vw;
+    }
+    @media(max-width: 890px) {
+        width: 95vw;
     }
 }
 
 #account-profile {
-    padding: 48px;
+    padding: 32px 32px 36px;
+
+    #account-profile-preview {
+        padding: 32px 24px;
+        background: #f2f9f8;
+        border-radius: 5px;
+    }
 }
 
 .account-profile-pic-wrapper {
@@ -349,6 +377,12 @@ button {
 }
 
 #account-menu {
+    width: 100%;
+    .menu-item {
+        &.active {
+            border-right: 3px solid
+        }
+    }
 
     .menu-item button {
         text-align: left;
@@ -389,6 +423,7 @@ button {
 
 #account-profile-email-preview {
     color: $font-secondary;
+    word-break: break-all;
 }
 
 
@@ -490,4 +525,8 @@ button {
     button {
         float: right;
     }
+}
+
+.show-success {
+    margin-top: 20%;
 }

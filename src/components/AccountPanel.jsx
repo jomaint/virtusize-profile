@@ -47,14 +47,18 @@ export default class AccountPanel extends React.Component {
                 <div className="row">
                     <ul id="account-menu">
                         {
-                            menu.map((item,ind) => (
-                                <li key={`menu-item-${ind}`} className='menu-item flex-row'>
-                                    <button onClick={this.onMenuPress(item.label)} style={ current === item.label ? styles.activeMenuItem : {} }>
-                                        <i className={`far ${item.iconClass}`}></i>
-                                        <span>{item.label}</span>
-                                    </button>
-                                </li>
-                            ))
+                            menu.map((item,ind) => {
+                                let isItemActive =  current === item.label;
+                                let itemClass = isItemActive ? 'active' : '';
+                                return (
+                                    <li key={`menu-item-${ind}`} className={`menu-item flex-row ${itemClass}`}>
+                                        <button onClick={this.onMenuPress(item.label)} style={ isItemActive ? styles.activeMenuItem : {} }>
+                                            <i className={`far ${item.iconClass}`}></i>
+                                            <span>{item.label}</span>
+                                        </button>
+                                    </li>
+                                );
+                            })
                         }
                     </ul>
                 </div>
@@ -66,7 +70,7 @@ export default class AccountPanel extends React.Component {
         const { current } = this.state;
 
         return (
-            <div id="account-panel" >
+            <div id="account-panel" className="margin-top-48 margin-bottom-48">
                 <div className="flex">
                     { this.renderMenu() }
                     <div className="col-12 col-sm-8 col-md-9">

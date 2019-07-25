@@ -23,6 +23,7 @@ export default class AccountUserInfo extends React.Component {
     }
 
     onNameFieldChange = valueObj => {
+        console.log('onNameFieldChange', valueObj);
         this.setState({ ...valueObj });
     }
 
@@ -34,7 +35,7 @@ export default class AccountUserInfo extends React.Component {
             <div id="account-profile">
                 <h3 className="page-header">Profile</h3>
 
-                <div className="flex-row margin-top-72 margin-bottom-72">
+                <div id="account-profile-preview" className="flex-row margin-top-24 margin-bottom-24">
                     <UserProfile email={email} />
                     <div className="margin-left-36 flex-col justify-content-center">
                         <h5 id="account-profile-name-preview" >

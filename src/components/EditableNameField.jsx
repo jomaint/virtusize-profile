@@ -49,6 +49,8 @@ class EditableNameField extends React.Component {
         const { firstName, lastName } = this.state;
         const { onChange } = this.props;
 
+        console.log('onSubmit', firstName, lastName);
+
 
         // we are not using EditableTextField 'required' props, since we are recomposing a hybrid text field
         // validate - check and make sure at least first name is filled
@@ -80,6 +82,7 @@ class EditableNameField extends React.Component {
                         editable={editable}
                         onFocus={this.setFocus('firstName')}
                         autoFocus={whichAutoFocus == 'firstName'}
+                        onEnterPress={this.onSubmit}
                         hideActionButtons />
                 </div>
                 <div className="col-12 col-sm-6" onClick={this.setEditable('lastName')}>
@@ -89,6 +92,7 @@ class EditableNameField extends React.Component {
                         onChange={this.onChange('lastName')}
                         editable={editable}
                         autoFocus={whichAutoFocus == 'lastName'}
+                        onEnterPress={this.onSubmit}
                         hideActionButtons />
                 </div>
 

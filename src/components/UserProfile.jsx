@@ -16,7 +16,7 @@ class UserProfile extends React.Component {
     }
 
     onMouseLeave = () => {
-        // this.setState({ hover: false });
+        this.setState({ hover: false });
     }
 
     onChange = e => {

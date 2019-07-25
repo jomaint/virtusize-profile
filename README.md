@@ -36,7 +36,7 @@ After commiting to develop branch, merge into master then build
 
 ```sh
 $ npm run build
-$ npm run deploy && git add . && git commit --m "Production build" && git push
+$ git add . && git commit --m "Production build" && git push
 ```
 
 SSH into remote server. Also assuming Nginx or other web service is serving the bundle files & html
