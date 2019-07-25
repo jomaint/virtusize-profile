@@ -33,10 +33,13 @@ class ChangePasswordField extends React.Component {
             setTimeout(() => {
                 this.setState({
                     showModal: false,
-                    showSuccess: false,
                     newPassword: '',
                     pwdStrength: null,
                     error: null
+                }, () => {
+                    // Set the show success later, so the modal closes first.
+                    // Then we reset the 'view' of the form w/o user knowing
+                    this.state.showSuccess = false;
                 });
             }, 2000);
         }
