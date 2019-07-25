@@ -27,8 +27,12 @@ class EditableNameField extends React.Component {
     }
 
     cancelEditable = () => {
-        console.log('set editable to false');
-        this.setState({ editable: false });
+        this.setState({
+            editable: false,
+            firstName: this.props.firstName,
+            lastName: this.props.lastName,
+            error: null
+        });
     }
 
     onChange = field => value => {

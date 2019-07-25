@@ -48,7 +48,13 @@ class EditableTextField extends React.Component {
 
     // set editable state to 'false'
     cancelEditable = () => {
-        this.setState({ isEditing: false });
+        this.setState({
+            isEditing: false,
+            inputValue: '',
+            error: null,
+            inputFocused: false
+        });
+
     }
 
     // Update edited local state
