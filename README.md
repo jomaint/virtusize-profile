@@ -6,6 +6,7 @@ This Virtusize Assignment is made with the following:
 * [Twitter Bootstrap] - Front-end component library used for rapid prototyping
 * [jQuery] - Required for Bootstrap js features. Only used for Bootstrap Modal in this project
 * [Webpack] - Webpack is an open-source JavaScript module bundler. Used for rapid development and bundling for production
+* [Nodejs] - Required if you want to host production build, locally.
 
 ## Design Considerations
 When approaching this project, I have set out with the following objectives and goals:
@@ -57,3 +58,4 @@ $ git pull && npm run live
    [jQuery]: <http://jquery.com>
    [express]: <http://expressjs.com>
    [React]: <https://reactjs.org/>
+   [Nodejs]: <https://nodejs.org/en/>

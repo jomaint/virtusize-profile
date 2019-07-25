@@ -146,7 +146,8 @@ input {
     outline: none; }
 
 button:focus {
-  outline: none; }
+  outline: none;
+  border: 1px solid #0A746D; }
 
 .editable-text-field {
   position: relative;
@@ -174,13 +175,18 @@ button:focus {
     cursor: pointer; }
     .editable-text-field:hover .fa-pencil-alt {
       opacity: 1; }
+  .editable-text-field span.text-display {
+    word-break: break-all;
+    display: inline-block;
+    padding-right: 26px; }
 
 .error-msg {
   color: #d43242;
   margin-top: 8px; }
 
 .navbar {
-  border-bottom: 1px solid #eeeeee; }
+  border-bottom: 1px solid #eeeeee;
+  padding: 0 16px; }
   .navbar .navbar-brand img {
     height: 50px;
     width: inherit; }
@@ -205,21 +211,37 @@ button:focus {
     color: white; }
 
 #account-page {
-  min-height: calc(100vh - 77px);
+  min-height: calc(100vh - 61px);
   background: linear-gradient(305.42deg, #16BFB1 0%, #A1F2EC 100%); }
+  #account-page .brand-v-background {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0.4; }
 
 #account-panel {
   width: 70vw;
   max-width: 800px;
   background: white;
   border-radius: 5px;
+  z-index: 2;
   overflow: hidden; }
+  @media (max-width: 1125px) {
+    #account-panel {
+      width: 76vw; } }
   @media (max-width: 992px) {
     #account-panel {
       width: 85vw; } }
+  @media (max-width: 890px) {
+    #account-panel {
+      width: 95vw; } }
 
 #account-profile {
-  padding: 48px; }
+  padding: 32px 32px 36px; }
+  #account-profile #account-profile-preview {
+    padding: 32px 24px;
+    background: #f2f9f8;
+    border-radius: 5px; }
 
 .account-profile-pic-wrapper {
   position: relative; }
@@ -255,22 +277,29 @@ button:focus {
     height: 100%;
     width: 100%; }
 
-#account-menu .menu-item button {
-  text-align: left;
-  width: 100%;
-  padding: 20px 24px;
-  font-size: 18px;
-  background: white;
-  border-color: transparent;
-  color: #A2A2A2; }
-  #account-menu .menu-item button:hover {
-    cursor: pointer;
-    color: #0E1C3B; }
-  #account-menu .menu-item button i.far {
-    margin-right: 16px;
-    font-size: 18px; }
-    #account-menu .menu-item button i.far.active ::before {
+#account-menu {
+  width: 100%; }
+  #account-menu .menu-item.active {
+    border-right: 3px solid; }
+  #account-menu .menu-item button {
+    text-align: left;
+    width: 100%;
+    padding: 20px 24px;
+    font-size: 18px;
+    background: white;
+    border-color: transparent;
+    color: #A2A2A2; }
+    #account-menu .menu-item button:hover {
+      cursor: pointer;
       color: #0E1C3B; }
+    #account-menu .menu-item button i.far {
+      margin-right: 16px;
+      font-size: 18px; }
+      #account-menu .menu-item button i.far.active ::before {
+        color: #0E1C3B; }
+    @media (max-width: 890px) {
+      #account-menu .menu-item button {
+        padding: 20px; } }
 
 #account-profile-name-preview {
   font-weight: 400; }
@@ -278,7 +307,8 @@ button:focus {
     text-transform: uppercase; }
 
 #account-profile-email-preview {
-  color: #888888; }
+  color: #888888;
+  word-break: break-all; }
 
 .modal-open .fade {
   opacity: 1; }
@@ -346,4 +376,7 @@ button:focus {
     -o-transition: width 300ms ease; }
   .change-password-modal button {
     float: right; }
+
+.show-success {
+  margin-top: 20%; }
 
