@@ -60,7 +60,7 @@ export default class AccountUserInfo extends React.Component {
                     type="email"
                     placeholder="Your email"
                     className="margin-top-24"
-                    onChange={this.onChangeField('email')}
+                    onSubmit={this.onChangeField('email')}
                     required />
 
                 <hr/>

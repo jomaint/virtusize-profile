@@ -20,6 +20,7 @@ class UserProfile extends React.Component {
     }
 
     onChange = e => {
+        console.log('onChange userprofile', e.target.files[0]);
         // Suppose to upload to S3 or backend, but we are gonna use it to set local state directly to see changes
         let that = this;
         const fileObj = e.target.files[0];
@@ -68,8 +69,9 @@ class UserProfile extends React.Component {
                         <img src={imgSrc} />
                     </div>
                     {
-                        hover &&
-                        <div className="editable-icon-container clickable">
+                        <div
+                            className="editable-icon-container"
+                            style={{ opacity: hover ? 1 : 0 }}>
                             <input type="file" onChange={this.onChange} />
                             <i class="fas fa-pencil-alt"></i>
                         </div>

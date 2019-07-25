@@ -29,9 +29,15 @@ class ChangePasswordField extends React.Component {
             // After successfully updated, show notification
             this.setState({ showSuccess: true });
 
-            // close modal after 2 secs
+            // close modal after 2 secs, also reset form state
             setTimeout(() => {
-                this.setState({ showModal: false });
+                this.setState({
+                    showModal: false,
+                    showSuccess: false,
+                    newPassword: '',
+                    pwdStrength: null,
+                    error: null
+                });
             }, 2000);
         }
     }

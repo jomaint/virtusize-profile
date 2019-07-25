@@ -183,6 +183,7 @@ input {
 button {
     &:focus {
         outline: none;
+        border: 1px solid #0A746D;
     }
 }
 
@@ -409,6 +410,11 @@ button {
                     color: $font-primary;
                 }
             }
+        }
+
+        // reduce menu button padding, for smaller laptop screens/ipad
+        @media(max-width: 890px) {
+            padding: 20px;
         }
     }
 }

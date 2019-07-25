@@ -15,7 +15,7 @@ class EditableTextField extends React.Component {
 
     onSubmit = () => {
         const { inputValue, error } = this.state;
-        const { type, onChange, label, required } = this.props;
+        const { type, onSubmit, label, required } = this.props;
 
         // if state not controlled by parent
         if (!('editable' in this.props)) {
@@ -31,7 +31,7 @@ class EditableTextField extends React.Component {
                     isEditing: false,
                     error: null
                 });
-                onChange(inputValue);
+                onSubmit(inputValue);
             }
         }
     }
@@ -56,6 +56,7 @@ class EditableTextField extends React.Component {
         const newValue = e.target.value;
         const { onChange } = this.props;
 
+        console.log('EditableTextField onChange', this.state.inputValue);
         this.setState({ inputValue: newValue });
 
         onChange && onChange(newValue);
@@ -67,12 +68,6 @@ class EditableTextField extends React.Component {
 
     onInputBlur = () => {
         this.setState({ inputFocused: false });
-
-        // Add simple but convenient accessibility behaviour, where there is no new change
-        // Exit the editable state
-        if (this.state.inputValue.length == 0) {
-            this.setState({ isEditing: false });
-        }
     }
 
     onKeyPress = (ev) => {
@@ -155,6 +150,7 @@ class EditableTextField extends React.Component {
 EditableTextField.propTypes = {
     value: PropTypes.string,
     onChange: PropTypes.func,
+    onSubmit: PropTypes.func,
     placeholder: PropTypes.string,
     label: PropTypes.string.isRequired,
     type: PropTypes.string,
